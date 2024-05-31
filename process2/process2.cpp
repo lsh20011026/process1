@@ -10,6 +10,13 @@
 std::mutex mtx;
 std::atomic<bool> terminateFlag(false);
 
+
+//2-1 구현
+//2-2 구현
+//2-3 다른 파일에 구혐 (출력 통합 이해 못함)
+
+
+//------------2-1------------
 template<typename T>
 class Queue {
 public:
@@ -161,7 +168,7 @@ public:
                 P = P->next;
             }
             else {
-                P = nullptr; // 마지막 노드까지 이동한 경우 P를 nullptr로 설정
+                P = nullptr; 
             }
         }
         if (isEmpty()) {
@@ -183,7 +190,7 @@ public:
             }
             upperStack.split_n_merge(upperStack, threshold);
 
-            // 재귀 호출 후 P 포인터 초기화
+
             if (!isEmpty()) {
                 P = q1.front;
             }
@@ -192,11 +199,11 @@ public:
             }
         }
         else {
-            P = nullptr; // 재귀 호출되지 않은 경우에도 P를 nullptr로 설정
+            P = nullptr; 
         }
     }
+//------------2-2------------
 
-    // Print the structure of the stack and queue
     void printStackAndQueueStructure() const {
         std::cout << "DQ:        [";
         std::vector<T> stackContents;
@@ -288,8 +295,8 @@ int main() {
     foregroundStack.push(6);
     foregroundStack.push(5);
     foregroundStack.push(4);
-    int X = 1; // 수정된 X 값
-    int Y = 2; // 수정된 Y 값
+    int X = 1; 
+    int Y = 2; 
 
     std::thread processAndPrintThread([&]() {
         processAndPrint(foregroundStack, backgroundStack, X, Y);
